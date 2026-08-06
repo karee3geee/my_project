@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel – Karim AI Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+</head>
+<body data-theme="dark">
+
+<!-- LOGIN SCREEN -->
+<div class="admin-login" id="adminLogin">
+  <div class="login-card glass-card">
+    <div class="login-logo"><span class="logo-mark">K</span></div>
+    <h1 class="login-title">Admin Login</h1>
+    <p class="login-sub">Karim AI Studio &mdash; Portfolio Manager</p>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Your password" required />
+      </div>
+      <button type="submit" class="btn btn-primary" id="loginBtn">Sign In</button>
+      <p class="login-error" id="loginError" style="display:none;color:#ef4444;margin-top:10px;font-size:0.85rem;"></p>
+    </form>
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="admin-dashboard" id="adminDashboard" style="display:none">
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo"><span class="logo-mark">K</span> Admin</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-link active" data-panel="projects">&#128444; Projects</a>
+      <a href="#" class="sidebar-link" data-panel="add">&#43; Add Project</a>
+      <a href="index.html" class="sidebar-link">&#8592; View Site</a>
+    </nav>
+    <button id="logoutBtn" class="btn btn-ghost btn-sm sidebar-logout">Sign Out</button>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h2 id="panelTitle">Projects</h2>
+      <span id="adminUserEmail" class="admin-user-email"></span>
+    </header>
+
+    <!-- PROJECTS PANEL -->
+    <section id="panelProjects" class="admin-panel active">
+      <div class="panel-toolbar">
+        <input type="text" id="projectSearch" class="search-input" placeholder="Search projects..." />
+        <button class="btn btn-primary" id="goAddProject">+ Add Project</button>
+      </div>
+      <div id="projectsList" class="projects-list">
+        <p class="loading-msg">Loading projects...</p>
+      </div>
+    </section>
+
+    <!-- ADD / EDIT PANEL -->
+    <section id="panelAdd" class="admin-panel" style="display:none">
+      <form id="projectForm" class="project-form glass-card">
+        <h3 id="formHeading">Add New Project</h3>
+        <input type="hidden" id="editProjectId" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Title *</label>
+            <input type="text" id="pTitle" placeholder="Project title" required />
+          </div>
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="pCategory" required>
+              <option value="images">AI Images</option>
+              <option value="videos">AI Videos</option>
+              <option value="automation">Python Automation</option>
+              <option value="workflows">AI Workflows</option>
+              <option value="creative">Creative Projects</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description *</label>
+          <textarea id="pDescription" rows="3" placeholder="Short description..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Tags (comma-separated)</label>
+          <input type="text" id="pTags" placeholder="e.g. Flux.1, 8K, Generative" />
+        </div>
+
+        <div class="form-group">
+          <label>Media File (Image or Video)</label>
+          <div class="dropzone" id="mediaDropzone">
+            <span>Click or drag &amp; drop image / video here</span>
+            <input type="file" id="mediaFile" accept="image/*,video/*" style="display:none" />
+          </div>
+          <div id="mediaPreview" class="media-preview"></div>
+          <div class="upload-progress" id="uploadProgress" style="display:none">
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <span id="progressLabel">0%</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Or paste Media URL</label>
+          <input type="url" id="pMediaUrl" placeholder="https://..." />
+        </div>
+
+        <div class="form-group">
+          <label>Display Order</label>
+          <input type="number" id="pOrder" value="0" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>Featured Project?</label>
+          <label class="toggle-label">
+            <input type="checkbox" id="pFeatured" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="saveProjectBtn">Save Project</button>
+          <button type="button" class="btn btn-ghost" id="cancelEdit">Cancel</button>
+          <button type="button" class="btn btn-danger" id="deleteProjectBtn" style="display:none">Delete Project</button>
+        </div>
+        <p class="form-msg" id="projectFormMsg" style="display:none"></p>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

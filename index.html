@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karim AI Studio &ndash; AI Designer &amp; Automation Specialist</title>
+  <meta name="description" content="Karim AI Studio &ndash; Premium AI Designer, Automation Specialist &amp; Python Developer." />
+  <meta property="og:title" content="Karim AI Studio" />
+  <meta property="og:description" content="Premium AI design &amp; automation portfolio by Karim" />
+  <meta property="og:image" content="assets/branding_lux.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+</head>
+<body>
+<div id="scrollProgressBar" class="scroll-progress"></div>
+
+<header class="navbar" id="navbar">
+  <div class="nav-inner container">
+    <a href="#hero" class="logo">
+      <span class="logo-mark">K</span>
+      <span class="logo-text">Karim AI Studio</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a href="admin.html" class="btn-nav-admin">Admin</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle theme">&#9788;</button>
+      <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">&#x2715;</button>
+  <div class="mobile-nav-logo">Karim AI Studio</div>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
+  <a href="admin.html">&#9881; Admin Panel</a>
+</nav>
+
+<section id="hero" class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-gradient-overlay"></div>
+  <div class="hero-content container">
+    <div class="hero-badge">&#10022; AI Designer &amp; Automation Specialist</div>
+    <h1 class="hero-title">Designing the Future with<br /><span class="gradient-text">Artificial Intelligence</span></h1>
+    <p class="hero-subtitle">I create cinematic AI visuals, professional AI-generated images, intelligent automation systems, and modern digital experiences powered by AI.</p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn btn-primary" id="heroViewWork">View My Work</a>
+      <a href="#contact" class="btn btn-ghost" id="heroContact">Let's Work Together</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="stat-number" data-count="100" data-suffix="+">0+</span><span>AI Images</span></div>
+      <div class="hero-stat"><span class="stat-number" data-count="30" data-suffix="+">0+</span><span>AI Videos</span></div>
+      <div class="hero-stat"><span class="stat-number" data-count="20" data-suffix="+">0+</span><span>Automations</span></div>
+      <div class="hero-stat"><span class="stat-number" data-count="100" data-suffix="%">0%</span><span>Satisfaction</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">Scroll &#8595;</div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="assets/hero_sphere.jpg" alt="Karim AI Studio" class="about-img" loading="lazy" />
+        <div class="about-img-glow"></div>
+      </div>
+      <div class="about-text">
+        <span class="section-eyebrow">About Me</span>
+        <h2 class="section-title">Karim &mdash; Turning AI<br />Into Art &amp; Automation</h2>
+        <p class="about-bio">I specialize in bridging the gap between creative vision and cutting-edge artificial intelligence. From hyper-realistic AI image generation to intelligent Python automation pipelines &mdash; I build things that matter.</p>
+        <p class="about-bio">My toolkit spans Midjourney, Flux, ComfyUI, RunwayML, Kling AI, Python, n8n, Make, and OpenAI APIs &mdash; combined into seamless workflows that deliver premium results at scale.</p>
+        <div class="about-tags">
+          <span class="tag">AI Image Generation</span>
+          <span class="tag">AI Video Production</span>
+          <span class="tag">Python Automation</span>
+          <span class="tag">n8n Workflows</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Creative Direction</span>
+        </div>
+        <div class="about-actions">
+          <a href="#contact" class="btn btn-primary">Work With Me</a>
+          <a href="assets/Karim_CV.pdf" class="btn btn-ghost" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <span class="section-eyebrow">What I Do</span>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card glass-card"><div class="service-icon">&#127912;</div><h3>AI Image Generation</h3><p>Photorealistic &amp; cinematic visuals using Flux.1, Midjourney, and ComfyUI with custom workflows.</p></div>
+      <div class="service-card glass-card"><div class="service-icon">&#127909;</div><h3>AI Video Production</h3><p>Dynamic video sequences with Runway Gen-3, Kling AI, and custom motion pipelines.</p></div>
+      <div class="service-card glass-card"><div class="service-icon">&#9889;</div><h3>Python Automation</h3><p>Intelligent Python scripts for data extraction, AI orchestration, and automated workflows.</p></div>
+      <div class="service-card glass-card"><div class="service-icon">&#128279;</div><h3>AI Workflows (n8n/Make)</h3><p>Multi-agent automation pipelines connecting APIs, LLMs, databases, and publishing channels.</p></div>
+      <div class="service-card glass-card"><div class="service-icon">&#127959;</div><h3>Creative AI Concepts</h3><p>Architectural renders, brand visuals, and generative art for high-impact creative campaigns.</p></div>
+      <div class="service-card glass-card"><div class="service-icon">&#129302;</div><h3>AI Consulting</h3><p>Strategy, tool selection, and roadmap planning for businesses integrating AI into operations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="section">
+  <div class="container">
+    <span class="section-eyebrow">My Work</span>
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio-filters" id="portfolioFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="images">AI Images</button>
+      <button class="filter-btn" data-filter="videos">AI Videos</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+      <button class="filter-btn" data-filter="workflows">Workflows</button>
+      <button class="filter-btn" data-filter="creative">Creative</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-loading">Loading projects...</div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" class="section">
+  <div class="container">
+    <span class="section-eyebrow">My Tools</span>
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-pill">&#128013; Python</div>
+      <div class="tech-pill">&#129302; ChatGPT / GPT-4</div>
+      <div class="tech-pill">&#128293; Flux.1 Pro</div>
+      <div class="tech-pill">&#127912; Midjourney</div>
+      <div class="tech-pill">&#9881; ComfyUI</div>
+      <div class="tech-pill">&#127909; Runway Gen-3</div>
+      <div class="tech-pill">&#128249; Kling AI</div>
+      <div class="tech-pill">&#128279; n8n</div>
+      <div class="tech-pill">&#128295; Make.com</div>
+      <div class="tech-pill">&#128444; Photoshop</div>
+      <div class="tech-pill">&#127902; Premiere Pro</div>
+      <div class="tech-pill">&#128293; Firebase</div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section">
+  <div class="container">
+    <span class="section-eyebrow">How I Work</span>
+    <h2 class="section-title">My Process</h2>
+    <div class="process-steps">
+      <div class="process-step glass-card"><div class="step-num">01</div><h3>Discovery</h3><p>Understanding your vision, goals, audience, and desired outcome through detailed consultation.</p></div>
+      <div class="process-step glass-card"><div class="step-num">02</div><h3>Planning</h3><p>Custom AI workflow strategy, prompt architecture, and project timeline tailored to your needs.</p></div>
+      <div class="process-step glass-card"><div class="step-num">03</div><h3>AI Creation</h3><p>Leveraging the best AI models and tools, creating and refining until output exceeds expectations.</p></div>
+      <div class="process-step glass-card"><div class="step-num">04</div><h3>Delivery</h3><p>Final assets in premium quality formats with full documentation and post-delivery support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section">
+  <div class="container">
+    <span class="section-eyebrow">Why Choose Me</span>
+    <h2 class="section-title">What Sets Me Apart</h2>
+    <div class="why-grid">
+      <div class="why-card glass-card"><div class="why-icon">&#9889;</div><h3>Fast Delivery</h3><p>Quick turnarounds without compromising on quality or precision.</p></div>
+      <div class="why-card glass-card"><div class="why-icon">&#128142;</div><h3>Premium Quality</h3><p>Pixel-perfect, cinematic results every single time.</p></div>
+      <div class="why-card glass-card"><div class="why-icon">&#129504;</div><h3>AI-Native Thinking</h3><p>I don't just use AI tools &mdash; I architect with them.</p></div>
+      <div class="why-card glass-card"><div class="why-icon">&#127757;</div><h3>Remote-Ready</h3><p>Seamless async collaboration worldwide, any timezone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <span class="section-eyebrow">Let's Connect</span>
+    <h2 class="section-title">Work With Karim</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-detail"><span class="contact-label">Email</span><a href="mailto:karee3ge.ee@gmail.com" class="contact-value">karee3ge.ee@gmail.com</a></div>
+        <div class="contact-detail"><span class="contact-label">Phone</span><a href="tel:+201013586048" class="contact-value">+20 1013586048</a></div>
+        <div class="contact-detail"><span class="contact-label">WhatsApp</span><a href="https://wa.me/201013586048" class="contact-value" target="_blank">Chat on WhatsApp &#8594;</a></div>
+        <a href="assets/Karim_CV.pdf" class="btn btn-primary" download id="cvDownloadBtn">Download CV</a>
+      </div>
+      <form class="contact-form glass-card" id="contactForm">
+        <div class="form-group"><label for="contactName">Your Name</label><input type="text" id="contactName" name="name" placeholder="John Doe" required /></div>
+        <div class="form-group"><label for="contactEmail">Your Email</label><input type="email" id="contactEmail" name="email" placeholder="john@example.com" required /></div>
+        <div class="form-group"><label for="contactMsg">Message</label><textarea id="contactMsg" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+        <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Send Message</button>
+        <p class="form-success-msg" id="formSuccessMsg" style="display:none"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="logo-mark">K</span><span>Karim AI Studio</span></div>
+      <p class="footer-sub">AI Designer &bull; AI Automation Specialist &bull; Python Developer</p>
+      <p class="footer-copy">&copy; 2026 Karim AI Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTopBtn" class="back-to-top" aria-label="Back to top">&#8593;</button>
+
+<a href="https://wa.me/201013586048" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="lightbox-modal" id="lightboxModal">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
+    <div class="lightbox-media" id="lightboxMedia"></div>
+    <div class="lightbox-info">
+      <h3 class="lightbox-title" id="lightboxTitle"></h3>
+      <p class="lightbox-desc" id="lightboxDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
