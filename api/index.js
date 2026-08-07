@@ -22,7 +22,7 @@ module.exports = (req, res) => {
   if (p === "/") p = "/index.html";
   if (p === "/admin" || p === "/admin/") p = "/admin.html";
 
-  const filePath = path.join(process.cwd(), p);
+  const filePath = path.join(__dirname, "..", p);
 
   const ext = path.extname(filePath).toLowerCase();
   const mime = MIME[ext] || "application/octet-stream";
