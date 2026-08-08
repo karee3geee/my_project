@@ -1,7 +1,6 @@
 {
   "name": "karee3ge",
   "version": "1.0.0",
-  "main": "index.html",
   "description": "",
   "dependencies": {
     "ansi-regex": "^5.0.1",
