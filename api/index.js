@@ -19,19 +19,10 @@ const MIME = {
 module.exports = (req, res) => {
   let p = req.url.split("?")[0];
 
-  // Remove /api from the beginning
-  if (p === "/api" || p.startsWith("/api/")) {
-    p = p.substring(4) || "/";
-  }
-
   if (p === "/") p = "/index.html";
   if (p === "/admin" || p === "/admin/") p = "/admin.html";
 
-  const filePath = path.join(
-    __dirname,
-    "..",
-    p.replace(/^\//, "")
-  );
+const filePath = path.join(__dirname, "..", p.replace(/^\//, ""));
 
   const ext = path.extname(filePath).toLowerCase();
   const mime = MIME[ext] || "application/octet-stream";
