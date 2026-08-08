@@ -1,7 +1,6 @@
 {
   "name": "karee3ge",
- "version": "1.0.0",
-"main": "api/index.js", 
+  "version": "1.0.0",
   "description": "",
   "dependencies": {
     "ansi-regex": "^5.0.1",
